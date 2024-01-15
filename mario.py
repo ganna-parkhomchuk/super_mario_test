@@ -83,7 +83,7 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode(DISPLAY)
     pygame.display.set_caption('Super Mario')
-    bg = Surface(DISPLAY)
+    bg = Surface((WIN_WIDTH,WIN_HEIGHT))
     bg.fill(Color(BACKGROUND_COLOR))
 
     music()
@@ -113,7 +113,7 @@ def main():
                 animated_entities.add(pr)
 
             x += PLATFORM_WIDTH
-        x += PLATFORM_WIDTH
+        y += PLATFORM_WIDTH
         x = 0
 
     total_level_width = len(level[0]) * PLATFORM_WIDTH

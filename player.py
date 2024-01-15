@@ -1,7 +1,7 @@
 from pygame import *
+import pyganim
 import blocks
 import monsters
-import pyganim
 from settings import MOVE_SPEED, MOVE_EXTRA_SPEED, WIDTH, HEIGHT, COLOR, JUMP_POWER, JUMP_EXTRA_POWER,\
         GRAVITY, ANIMATION_DELAY, ANIMATION_SUPER_SPEED_DELAY, ANIMATION_LEFT, ANIMATION_RIGHT,\
         ANIMATION_JUMP, ANIMATION_JUMP_LEFT, ANIMATION_JUMP_RIGHT, ANIMATION_STAY, SCREEN_START
@@ -89,7 +89,6 @@ class Player(sprite.Sprite):
         if right:
             self.x_val = MOVE_SPEED
             self.image.fill(Color(COLOR))
-
             if running:
                 self.x_val += MOVE_EXTRA_SPEED
                 if not up:
@@ -97,11 +96,10 @@ class Player(sprite.Sprite):
             else:
                 if not up:
                     self.bolt_anim_right.blit(self.image, SCREEN_START)
-
             if up:
                 self.bolt_anim_jump_right.blit(self.image, SCREEN_START)
 
-        if not left or right:
+        if not (left or right):
             self.x_val = 0
             if not up:
                 self.image.fill(Color(COLOR))
